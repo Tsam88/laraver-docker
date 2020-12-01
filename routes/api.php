@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/posts', 'PostController@restApiGetPosts');
+Route::get('/post/{id}', 'PostController@restApiGetPost');
+Route::get('/projects', 'ProjectController@restApiGetProjects');
+Route::get('/project/{id}', 'ProjectController@restApiGetProject');
+Route::get('/developers', 'ProjectController@restApiGetDevelopers');
+Route::get('/developers/{id}', 'ProjectController@restApiGetDeveloper');
+Route::get('/developers_projects', 'DeveloperProjectController@restApiGetDevelopersProjects');
+Route::get('/developer_projects/{developerId}', 'DeveloperProjectController@restApiGetDeveloperProjects');
+Route::get('/project_developers/{projectId}', 'DeveloperProjectController@restApiGetProjectDevelopers');
+Route::get('/developer_project_relationship/{developersId}/{projectId}', 'DeveloperProjectController@restApiGetDeveloperProjectRelationship');
+Route::get('/developer_project_relationships', 'DeveloperProjectController@restApiGetDeveloperProjectRelationships');
+Route::post('/import', 'ImportExcelController@restApiImport');
